@@ -14,10 +14,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          #cache: 'npm' # Optional: Automatically caches node_modules to speed up runs
 
       - name: install dependencies
-        run: npm ci # Best practice for CI environments instead of 'npm install'
+        run: npm install # Changed from 'npm ci' since no package-lock.json exists
 
       - name: run
         run: npm run build --if-present
@@ -29,5 +28,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: nodejs-build-production
-          path: dist/ # Make sure your build script actually outputs to 'dist/'
-        
+          path: dist/ 

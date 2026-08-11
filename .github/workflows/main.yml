@@ -27,5 +27,6 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: shared-data
-          path: ~/npm
+          name: nodejs-build-production
+          path: |
+            package*

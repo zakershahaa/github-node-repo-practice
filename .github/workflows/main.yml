@@ -1,6 +1,6 @@
 name: NODE-JS
 
-on: [push]
+on:
 
 jobs:
   build:

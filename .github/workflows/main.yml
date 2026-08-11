@@ -30,4 +30,4 @@ jobs:
         with:
           name: nodejs-build-production
           path: dist/ # Make sure your build script actually outputs to 'dist/'
-          retention-days: 5
+        

@@ -1,6 +1,6 @@
 name: NODE-JS
 
-on: [push,workflow_dispatch]
+on: [push, workflow_dispatch]
 
 jobs:
   build:
@@ -8,15 +8,16 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: 'npm' # Optional: Automatically caches node_modules to speed up runs
 
       - name: install dependencies
-        run: npm install
+        run: npm ci # Best practice for CI environments instead of 'npm install'
 
       - name: run
         run: npm run build --if-present
@@ -24,3 +25,9 @@ jobs:
       - name: test
         run: echo "test is passed"
 
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nodejs-build-production
+          path: dist/ # Make sure your build script actually outputs to 'dist/'
+          retention-days: 5

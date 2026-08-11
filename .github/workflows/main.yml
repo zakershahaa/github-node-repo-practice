@@ -1,6 +1,6 @@
 name: NODE-JS
 
-on:
+on: [push,workflow_dispatch]
 
 jobs:
   build:

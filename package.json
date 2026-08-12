@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --max-warnings=0"
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" --ignore-pattern node_modules --max-warnings=0"
   },
   "devDependencies": {
     "eslint": "^8.0.0",
